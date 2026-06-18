@@ -1,0 +1,22 @@
+{
+  "packages": [
+    {
+      "name": "Basic",
+      "price": "od 800 zł",
+      "featured": false,
+      "features": ["Do 3 godzin fotografowania", "100 zdjęć w galerii online", "Licencja do użytku własnego"]
+    },
+    {
+      "name": "Standard",
+      "price": "od 1500 zł",
+      "featured": true,
+      "features": ["Do 6 godzin fotografowania", "250 zdjęć w galerii online", "Licencja komercyjna", "Ekspresowa realizacja 48h"]
+    },
+    {
+      "name": "Premium",
+      "price": "od 2800 zł",
+      "featured": false,
+      "features": ["Cały dzień fotografowania", "Nielimitowana liczba zdjęć", "Licencja komercyjna", "Realizacja 24h", "Drukowany album"]
+    }
+  ]
+}

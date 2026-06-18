@@ -1,0 +1,19 @@
+{
+  "testimonials": [
+    {
+      "name": "Anna Kowalska",
+      "company": "TechConf 2024",
+      "text": "Wojtek uchwycił każdy ważny moment konferencji. Zdjęcia były gotowe następnego dnia rano — niesamowita szybkość i jakość."
+    },
+    {
+      "name": "Marek Wiśniewski",
+      "company": "Festival Rocks",
+      "text": "Pracował przez cały dzień festiwalu, dosłownie niewidoczny dla uczestników, a efekty są spektakularne. Polecam bez wahania."
+    },
+    {
+      "name": "Katarzyna Nowak",
+      "company": "ABC Sp. z o.o.",
+      "text": "Zdjęcia z naszej imprezy integracyjnej przeszły nasze oczekiwania. Naturalność, energia, profesjonalizm — to Wojtek w trzech słowach."
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "photos": [
+    { "src": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800", "alt": "Konferencja biznesowa", "category": "Konferencja" },
+    { "src": "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=800", "alt": "Koncert na żywo", "category": "Koncert" },
+    { "src": "https://images.unsplash.com/photo-1511578314322-379afb476865?w=800", "alt": "Impreza firmowa", "category": "Event firmowy" },
+    { "src": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800", "alt": "Festiwal muzyczny", "category": "Festiwal" },
+    { "src": "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=800", "alt": "Gala rozdania nagród", "category": "Gala" },
+    { "src": "https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=800", "alt": "Team building", "category": "Event firmowy" }
+  ]
+}

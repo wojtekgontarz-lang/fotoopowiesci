@@ -1,0 +1,65 @@
+backend:
+  name: github
+  repo: wojtekgontarz-lang/fotoopowiesci
+  branch: main
+
+media_folder: "assets/images"
+public_folder: "/assets/images"
+
+collections:
+  - name: "settings"
+    label: "Ustawienia strony"
+    files:
+      - name: "general"
+        label: "Ogólne (nazwa, kontakt, hero)"
+        file: "_data/general.json"
+        fields:
+          - { label: "Imię i nazwisko fotografa", name: "photographer_name", widget: "string" }
+          - { label: "Tagline (pod imieniem)", name: "tagline", widget: "string" }
+          - { label: "Tekst w sekcji Hero", name: "hero_text", widget: "text" }
+          - { label: "Zdjęcie Hero (tło)", name: "hero_image", widget: "image" }
+          - { label: "E-mail kontaktowy", name: "email", widget: "string" }
+          - { label: "Telefon", name: "phone", widget: "string" }
+          - { label: "Miasto / obszar działania", name: "location", widget: "string" }
+          - { label: "Tekst sekcji O mnie", name: "about_text", widget: "text" }
+          - { label: "Zdjęcie w sekcji O mnie", name: "about_image", widget: "image" }
+
+      - name: "packages"
+        label: "Pakiety cenowe"
+        file: "_data/packages.json"
+        fields:
+          - label: "Pakiety"
+            name: "packages"
+            widget: "list"
+            fields:
+              - { label: "Nazwa pakietu", name: "name", widget: "string" }
+              - { label: "Cena (np. od 1200 zł)", name: "price", widget: "string" }
+              - { label: "Wyróżniony? (polecany)", name: "featured", widget: "boolean", default: false }
+              - label: "Punkty pakietu"
+                name: "features"
+                widget: "list"
+                field: { label: "Punkt", name: "item", widget: "string" }
+
+      - name: "gallery"
+        label: "Galeria zdjęć"
+        file: "_data/gallery.json"
+        fields:
+          - label: "Zdjęcia"
+            name: "photos"
+            widget: "list"
+            fields:
+              - { label: "Zdjęcie", name: "src", widget: "image" }
+              - { label: "Opis (alt)", name: "alt", widget: "string" }
+              - { label: "Kategoria (np. Koncert, Konferencja)", name: "category", widget: "string" }
+
+      - name: "testimonials"
+        label: "Opinie klientów"
+        file: "_data/testimonials.json"
+        fields:
+          - label: "Opinie"
+            name: "testimonials"
+            widget: "list"
+            fields:
+              - { label: "Imię i nazwisko", name: "name", widget: "string" }
+              - { label: "Firma / wydarzenie", name: "company", widget: "string" }
+              - { label: "Treść opinii", name: "text", widget: "text" }
