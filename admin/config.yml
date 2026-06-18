@@ -16,14 +16,12 @@ collections:
         file: "_data/general.json"
         fields:
           - { label: "Imię i nazwisko fotografa", name: "photographer_name", widget: "string" }
-          - { label: "Tagline (pod imieniem)", name: "tagline", widget: "string" }
+          - { label: "Tagline", name: "tagline", widget: "string" }
           - { label: "Tekst w sekcji Hero", name: "hero_text", widget: "text" }
-          - { label: "Zdjęcie Hero (tło)", name: "hero_image", widget: "image" }
           - { label: "E-mail kontaktowy", name: "email", widget: "string" }
           - { label: "Telefon", name: "phone", widget: "string" }
           - { label: "Miasto / obszar działania", name: "location", widget: "string" }
           - { label: "Tekst sekcji O mnie", name: "about_text", widget: "text" }
-          - { label: "Zdjęcie w sekcji O mnie", name: "about_image", widget: "image" }
 
       - name: "packages"
         label: "Pakiety cenowe"
@@ -34,8 +32,8 @@ collections:
             widget: "list"
             fields:
               - { label: "Nazwa pakietu", name: "name", widget: "string" }
-              - { label: "Cena (np. od 1200 zł)", name: "price", widget: "string" }
-              - { label: "Wyróżniony? (polecany)", name: "featured", widget: "boolean", default: false }
+              - { label: "Cena", name: "price", widget: "string" }
+              - { label: "Wyróżniony?", name: "featured", widget: "boolean", default: false }
               - label: "Punkty pakietu"
                 name: "features"
                 widget: "list"
@@ -49,9 +47,9 @@ collections:
             name: "photos"
             widget: "list"
             fields:
-              - { label: "Zdjęcie", name: "src", widget: "image" }
-              - { label: "Opis (alt)", name: "alt", widget: "string" }
-              - { label: "Kategoria (np. Koncert, Konferencja)", name: "category", widget: "string" }
+              - { label: "Link do zdjęcia", name: "src", widget: "string" }
+              - { label: "Opis", name: "alt", widget: "string" }
+              - { label: "Kategoria", name: "category", widget: "string" }
 
       - name: "testimonials"
         label: "Opinie klientów"
