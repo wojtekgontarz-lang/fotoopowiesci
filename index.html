@@ -4,27 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Marek Nocny — Fotograf Eventowy</title>
-<meta name="description" content="Fotografia eventowa: wesela, koncerty, imprezy firmowe. Łapię moment, nie pozę.">
-
-<!-- ====================================================================
-     EDYCJA TREŚCI: Szukaj znaczników <!-- EDIT: ... --> w kodzie.
-     Każdy fragment tekstu, który powinieneś zmienić, jest tak oznaczony.
-     Zdjęcia: zamień linki w atrybutach src="..." na własne (patrz sekcja
-     GALERIA i HERO). Najlepiej wgraj swoje zdjęcia do folderu /assets/
-     i wskaż na nie ścieżkami typu "assets/zdjecie1.jpg".
-     ==================================================================== -->
+<meta name="description" content="Fotografia eventowa: koncerty, festiwale, konferencje, imprezy firmowe. Łapię moment, nie pozę.">
 
 <style>
   :root{
-    /* === TOKENY DESIGNU === */
-    --bg: #0d0b09;            /* głęboka, ciepła czerń - nie czysty czarny */
-    --bg-soft: #161210;
-    --paper: #f3ede3;          /* ciepła "kontaktówka" biel */
-    --ink: #e8e1d4;            /* tekst na czerni */
-    --ink-dim: #a89c89;
-    --amber: #e8a04c;          /* światło żarowe / flesz */
-    --amber-deep: #b5732a;
-    --line: rgba(232, 161, 76, 0.18);
+    --bg: #ffffff;
+    --bg-soft: #f4f6fa;
+    --navy: #0c2348;
+    --navy-deep: #081730;
+    --red: #d72638;
+    --red-deep: #a81c2a;
+    --ink: #16213e;
+    --ink-dim: #5b6478;
+    --line: rgba(12, 35, 72, 0.12);
 
     --display: "Fraunces", serif;
     --body: "Inter", system-ui, sans-serif;
@@ -47,10 +39,9 @@
     overflow-x:hidden;
   }
 
-  ::selection{ background:var(--amber); color:#0d0b09; }
+  ::selection{ background:var(--red); color:#fff; }
 
   a{ color:inherit; text-decoration:none; }
-
   img{ max-width:100%; display:block; }
 
   .wrap{
@@ -59,36 +50,31 @@
     padding:0 32px;
   }
 
-  /* === FLESZ: sygnatura strony - efekt rozjaśnienia jak migawka === */
   #flash-overlay{
     position:fixed; inset:0;
-    background:#fff;
+    background:#0c2348;
     pointer-events:none;
     z-index:9999;
     opacity:0;
   }
-  .flash-fire{
-    animation:flashPulse 0.45s ease-out;
-  }
+  .flash-fire{ animation:flashPulse 0.4s ease-out; }
   @keyframes flashPulse{
     0%{opacity:0;}
-    8%{opacity:0.85;}
+    10%{opacity:0.12;}
     100%{opacity:0;}
   }
 
-  /* === NAGŁÓWEK === */
   header{
     position:fixed; top:0; left:0; right:0;
     z-index:500;
     padding:24px 0;
-    transition:background 0.4s ease, padding 0.4s ease, border-color .4s ease;
-    border-bottom:1px solid transparent;
+    transition:background 0.4s ease, padding 0.4s ease, box-shadow .4s ease;
   }
   header.scrolled{
-    background:rgba(13,11,9,0.88);
+    background:rgba(255,255,255,0.92);
     backdrop-filter:blur(10px);
     padding:14px 0;
-    border-bottom:1px solid var(--line);
+    box-shadow:0 1px 0 var(--line);
   }
   header .wrap{
     display:flex;
@@ -100,8 +86,9 @@
     font-size:1.3rem;
     font-weight:600;
     letter-spacing:0.02em;
+    color:var(--navy);
   }
-  .logo span{ color:var(--amber); }
+  .logo span{ color:var(--red); }
 
   nav ul{
     display:flex;
@@ -112,15 +99,14 @@
     font-size:0.92rem;
     color:var(--ink-dim);
     transition:color 0.25s ease;
-    position:relative;
   }
-  nav a:hover, nav a:focus-visible{ color:var(--amber); }
-  nav a:focus-visible{ outline:2px solid var(--amber); outline-offset:4px; border-radius:2px; }
+  nav a:hover, nav a:focus-visible{ color:var(--red); }
+  nav a:focus-visible{ outline:2px solid var(--red); outline-offset:4px; border-radius:2px; }
 
   .nav-toggle{
     display:none;
     background:none; border:none;
-    color:var(--ink);
+    color:var(--navy);
     font-size:1.5rem;
     cursor:pointer;
   }
@@ -129,37 +115,37 @@
     nav{
       position:fixed; top:0; right:0;
       height:100vh; width:min(320px,80vw);
-      background:var(--bg-soft);
+      background:#fff;
       transform:translateX(100%);
       transition:transform 0.4s ease;
       padding:100px 40px 40px;
-      box-shadow:-8px 0 40px rgba(0,0,0,0.5);
+      box-shadow:-8px 0 40px rgba(12,35,72,0.15);
     }
     nav.open{ transform:translateX(0); }
     nav ul{ flex-direction:column; gap:28px; }
     .nav-toggle{ display:block; z-index:600; }
   }
 
-  /* === HERO === */
   .hero{
     min-height:100vh;
     position:relative;
     display:flex;
     align-items:center;
     overflow:hidden;
+    background:var(--navy-deep);
   }
   .hero-bg{
     position:absolute; inset:0;
-    background-image:url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2000&auto=format&fit=crop');
+    background-image:url('https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?q=80&w=2000&auto=format&fit=crop');
     background-size:cover;
-    background-position:center 30%;
-    filter:brightness(0.55) saturate(1.1);
+    background-position:center 35%;
+    filter:brightness(0.45) saturate(1.05);
     transform:scale(1.05);
   }
   .hero-bg::after{
     content:"";
     position:absolute; inset:0;
-    background:linear-gradient(180deg, rgba(13,11,9,0.55) 0%, rgba(13,11,9,0.35) 45%, rgba(13,11,9,0.95) 100%);
+    background:linear-gradient(180deg, rgba(8,23,48,0.6) 0%, rgba(8,23,48,0.4) 45%, rgba(8,23,48,0.97) 100%);
   }
   .hero-content{
     position:relative;
@@ -171,7 +157,7 @@
     font-size:0.8rem;
     letter-spacing:0.18em;
     text-transform:uppercase;
-    color:var(--amber);
+    color:var(--red);
     display:flex;
     align-items:center;
     gap:10px;
@@ -181,8 +167,8 @@
   }
   .hero-eyebrow .dot{
     width:8px;height:8px;border-radius:50%;
-    background:var(--amber);
-    box-shadow:0 0 12px var(--amber);
+    background:var(--red);
+    box-shadow:0 0 12px var(--red);
     animation:blink 2.2s ease-in-out infinite;
   }
   @keyframes blink{ 0%,100%{opacity:1;} 50%{opacity:0.3;} }
@@ -194,19 +180,20 @@
     line-height:0.98;
     letter-spacing:-0.01em;
     max-width:900px;
+    color:#fff;
     opacity:0;
     animation:riseIn 0.9s ease 0.4s forwards;
   }
   .hero h1 em{
     font-style:italic;
-    color:var(--amber);
+    color:var(--red);
     font-weight:500;
   }
   .hero p{
     margin-top:28px;
     max-width:520px;
     font-size:1.15rem;
-    color:var(--ink-dim);
+    color:#c7cee0;
     opacity:0;
     animation:riseIn 0.9s ease 0.6s forwards;
   }
@@ -235,25 +222,33 @@
     letter-spacing:0.01em;
     cursor:pointer;
     border:1px solid transparent;
-    transition:transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color .25s ease;
+    transition:transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color .25s ease, border-color .25s ease;
   }
   .btn-primary{
-    background:var(--amber);
-    color:#1a1209;
+    background:var(--red);
+    color:#fff;
   }
   .btn-primary:hover{
     transform:translateY(-2px);
-    box-shadow:0 12px 30px rgba(232,160,76,0.35);
+    box-shadow:0 12px 30px rgba(215,38,56,0.35);
+    background:var(--red-deep);
   }
   .btn-ghost{
-    border-color:var(--line);
-    color:var(--ink);
+    border-color:rgba(255,255,255,0.3);
+    color:#fff;
   }
   .btn-ghost:hover{
-    border-color:var(--amber);
-    color:var(--amber);
+    border-color:#fff;
   }
-  .btn:focus-visible{ outline:2px solid var(--amber); outline-offset:3px; }
+  .btn:focus-visible{ outline:2px solid var(--red); outline-offset:3px; }
+
+  .btn-ghost-light{
+    border-color:var(--line);
+    color:var(--navy);
+  }
+  .btn-ghost-light:hover{
+    border-color:var(--navy);
+  }
 
   .hero-scroll{
     position:absolute; bottom:36px; left:32px;
@@ -261,17 +256,16 @@
     display:flex; align-items:center; gap:12px;
     font-family:var(--mono);
     font-size:0.75rem;
-    color:var(--ink-dim);
+    color:#c7cee0;
     letter-spacing:0.12em;
   }
   .scroll-line{
     width:1px; height:40px;
-    background:linear-gradient(180deg, var(--amber), transparent);
+    background:linear-gradient(180deg, var(--red), transparent);
     animation:scrollLine 2s ease-in-out infinite;
   }
   @keyframes scrollLine{ 0%,100%{ height:40px;} 50%{ height:20px; } }
 
-  /* === SEKCJE OGÓLNE === */
   section{ padding:140px 0; position:relative; }
   .section-head{
     display:flex;
@@ -286,7 +280,7 @@
     font-size:0.78rem;
     letter-spacing:0.16em;
     text-transform:uppercase;
-    color:var(--amber);
+    color:var(--red);
     margin-bottom:14px;
     display:block;
   }
@@ -296,6 +290,7 @@
     font-weight:600;
     line-height:1.05;
     max-width:600px;
+    color:var(--navy);
   }
   .section-note{
     max-width:340px;
@@ -310,7 +305,6 @@
   }
   .reveal.in{ opacity:1; transform:translateY(0); }
 
-  /* === O MNIE === */
   .about{
     display:grid;
     grid-template-columns:0.85fr 1.15fr;
@@ -325,12 +319,12 @@
   }
   .about-portrait img{
     width:100%; height:100%; object-fit:cover;
-    filter:grayscale(0.15) contrast(1.05);
+    filter:contrast(1.05);
   }
   .about-portrait::before{
     content:"";
     position:absolute; inset:0;
-    border:1px solid var(--line);
+    border:1px solid rgba(255,255,255,0.5);
     z-index:2;
     pointer-events:none;
     margin:14px;
@@ -341,7 +335,7 @@
     margin-bottom:22px;
     max-width:560px;
   }
-  .about-text p strong{ color:var(--ink); font-weight:600; }
+  .about-text p strong{ color:var(--navy); font-weight:600; }
 
   .stat-row{
     display:flex;
@@ -352,7 +346,7 @@
   .stat b{
     font-family:var(--display);
     font-size:2.4rem;
-    color:var(--amber);
+    color:var(--red);
     display:block;
     line-height:1;
   }
@@ -367,10 +361,7 @@
     .about{ grid-template-columns:1fr; gap:40px; }
   }
 
-  /* === GALERIA === */
-  .gallery{
-    background:var(--bg-soft);
-  }
+  .gallery{ background:var(--bg-soft); }
   .gallery-grid{
     display:grid;
     grid-template-columns:repeat(4, 1fr);
@@ -381,21 +372,17 @@
     position:relative;
     overflow:hidden;
     cursor:pointer;
-    background:#1a1612;
+    background:var(--navy-deep);
   }
   .gallery-item img{
     width:100%; height:100%; object-fit:cover;
     transition:transform 0.6s ease, filter 0.6s ease;
-    filter:brightness(0.92);
   }
-  .gallery-item:hover img{
-    transform:scale(1.08);
-    filter:brightness(1.05);
-  }
+  .gallery-item:hover img{ transform:scale(1.08); }
   .gallery-item::after{
     content:"";
     position:absolute; inset:0;
-    background:linear-gradient(180deg, transparent 50%, rgba(13,11,9,0.85) 100%);
+    background:linear-gradient(180deg, transparent 50%, rgba(8,23,48,0.88) 100%);
     opacity:0;
     transition:opacity 0.4s ease;
   }
@@ -407,7 +394,7 @@
     font-size:0.72rem;
     letter-spacing:0.1em;
     text-transform:uppercase;
-    color:var(--paper);
+    color:#fff;
     opacity:0;
     transform:translateY(8px);
     transition:opacity 0.4s ease, transform 0.4s ease;
@@ -422,7 +409,6 @@
     .gallery-item.wide{ grid-column:span 2; }
   }
 
-  /* === USŁUGI / CENNIK === */
   .pricing-grid{
     display:grid;
     grid-template-columns:repeat(3, 1fr);
@@ -435,17 +421,17 @@
     padding:48px 36px;
     display:flex;
     flex-direction:column;
-    transition:background 0.3s ease;
   }
   .price-card.featured{
-    background:#171210;
+    background:var(--navy);
     position:relative;
+    color:#fff;
   }
   .price-card.featured::before{
     content:"Najczęściej wybierany";
     position:absolute; top:0; left:0; right:0;
-    background:var(--amber);
-    color:#1a1209;
+    background:var(--red);
+    color:#fff;
     font-family:var(--mono);
     font-size:0.68rem;
     letter-spacing:0.08em;
@@ -459,24 +445,33 @@
     font-family:var(--display);
     font-size:1.5rem;
     margin-bottom:8px;
+    color:var(--navy);
   }
+  .price-card.featured .price-name{ color:#fff; }
+
   .price-desc{
     color:var(--ink-dim);
     font-size:0.9rem;
     margin-bottom:28px;
   }
+  .price-card.featured .price-desc{ color:#c7cee0; }
+
   .price-amount{
     font-family:var(--display);
     font-size:2.6rem;
-    color:var(--amber);
+    color:var(--red);
     margin-bottom:4px;
   }
+  .price-card.featured .price-amount{ color:#ff6b76; }
+
   .price-amount span{
     font-family:var(--body);
     font-size:0.95rem;
     color:var(--ink-dim);
     font-weight:400;
   }
+  .price-card.featured .price-amount span{ color:#c7cee0; }
+
   .price-list{
     list-style:none;
     margin:28px 0 32px;
@@ -490,11 +485,15 @@
     display:flex;
     gap:10px;
   }
+  .price-card.featured .price-list li{
+    border-top-color:rgba(255,255,255,0.15);
+    color:#dbe1f0;
+  }
   .price-list li::before{
     content:"";
     width:6px; height:6px;
     border-radius:50%;
-    background:var(--amber);
+    background:var(--red);
     margin-top:7px;
     flex-shrink:0;
   }
@@ -505,10 +504,9 @@
     .price-card.featured::before{ position:static; margin:-48px -36px 24px; }
   }
 
-  /* === OPINIE === */
-  .testimonials{
-    background:var(--bg-soft);
-  }
+  .testimonials{ background:var(--navy); }
+  .testimonials h2, .testimonials .eyebrow{ color:#fff; }
+  .testimonials .eyebrow{ color:var(--red); }
   .testi-track{
     display:flex;
     gap:28px;
@@ -521,8 +519,8 @@
   .testi-card{
     flex:0 0 min(420px, 85vw);
     scroll-snap-align:start;
-    background:var(--bg);
-    border:1px solid var(--line);
+    background:var(--navy-deep);
+    border:1px solid rgba(255,255,255,0.1);
     padding:36px;
     display:flex;
     flex-direction:column;
@@ -531,7 +529,7 @@
     font-family:var(--display);
     font-size:1.15rem;
     line-height:1.5;
-    color:var(--ink);
+    color:#fff;
     margin-bottom:24px;
     flex-grow:1;
   }
@@ -543,17 +541,16 @@
   .testi-avatar{
     width:42px; height:42px;
     border-radius:50%;
-    background:var(--amber-deep);
+    background:var(--red);
     display:flex; align-items:center; justify-content:center;
     font-family:var(--display);
     font-weight:600;
-    color:#1a1209;
+    color:#fff;
     flex-shrink:0;
   }
-  .testi-name{ font-size:0.92rem; font-weight:600; }
-  .testi-role{ font-size:0.8rem; color:var(--ink-dim); }
+  .testi-name{ font-size:0.92rem; font-weight:600; color:#fff; }
+  .testi-role{ font-size:0.8rem; color:#9aa6c4; }
 
-  /* === KONTAKT === */
   .contact-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -572,27 +569,25 @@
   }
   .contact-detail a, .contact-detail div{
     font-size:1.05rem;
+    color:var(--ink);
   }
   .contact-detail .label{
     font-family:var(--mono);
     font-size:0.72rem;
     letter-spacing:0.1em;
     text-transform:uppercase;
-    color:var(--amber);
+    color:var(--red);
     display:block;
     margin-bottom:4px;
   }
-  .social-row{
-    display:flex;
-    gap:24px;
-  }
+  .social-row{ display:flex; gap:24px; }
   .social-row a{
     font-size:0.9rem;
     color:var(--ink-dim);
     border-bottom:1px solid transparent;
     transition:color 0.25s ease, border-color 0.25s ease;
   }
-  .social-row a:hover{ color:var(--amber); border-color:var(--amber); }
+  .social-row a:hover{ color:var(--red); border-color:var(--red); }
 
   form{ display:flex; flex-direction:column; gap:22px; }
   .field{ display:flex; flex-direction:column; gap:8px; }
@@ -613,10 +608,10 @@
     padding:10px 2px;
     transition:border-color 0.3s ease;
   }
-  .field select option{ background:var(--bg-soft); color:var(--ink); }
+  .field select option{ background:#fff; color:var(--ink); }
   .field input:focus, .field textarea:focus, .field select:focus{
     outline:none;
-    border-color:var(--amber);
+    border-color:var(--red);
   }
   .field textarea{ resize:vertical; min-height:100px; }
   .form-status{
@@ -624,13 +619,12 @@
     color:var(--ink-dim);
     min-height:1.2em;
   }
-  .form-status.success{ color:var(--amber); }
+  .form-status.success{ color:var(--red); }
 
   @media (max-width:860px){
     .contact-grid{ grid-template-columns:1fr; gap:56px; }
   }
 
-  /* === FOOTER === */
   footer{
     border-top:1px solid var(--line);
     padding:40px 0;
@@ -644,10 +638,9 @@
   }
   footer p{ font-size:0.85rem; color:var(--ink-dim); }
 
-  /* === LIGHTBOX === */
   .lightbox{
     position:fixed; inset:0;
-    background:rgba(13,11,9,0.96);
+    background:rgba(8,23,48,0.96);
     z-index:1000;
     display:none;
     align-items:center;
@@ -658,17 +651,17 @@
   .lightbox img{
     max-width:90vw; max-height:85vh;
     object-fit:contain;
-    border:1px solid var(--line);
+    border:1px solid rgba(255,255,255,0.15);
   }
   .lightbox-close{
     position:absolute; top:28px; right:32px;
     background:none; border:none;
-    color:var(--ink);
+    color:#fff;
     font-size:2rem;
     cursor:pointer;
     line-height:1;
   }
-  .lightbox-close:hover{ color:var(--amber); }
+  .lightbox-close:hover{ color:var(--red); }
 
   @media (max-width:600px){
     section{ padding:90px 0; }
@@ -680,10 +673,9 @@
 
 <div id="flash-overlay"></div>
 
-<!-- ============ NAGŁÓWEK ============ -->
 <header id="site-header">
   <div class="wrap">
-    <a href="#top" class="logo"><!-- EDIT: imię/nazwa marki -->Marek <span>Nocny</span></a>
+    <a href="#top" class="logo">Marek <span>Nocny</span></a>
     <button class="nav-toggle" id="nav-toggle" aria-label="Otwórz menu" aria-expanded="false">☰</button>
     <nav id="nav-menu">
       <ul>
@@ -697,13 +689,12 @@
   </div>
 </header>
 
-<!-- ============ HERO ============ -->
 <section class="hero" id="top">
   <div class="hero-bg"></div>
   <div class="wrap hero-content">
-    <div class="hero-eyebrow"><span class="dot"></span><!-- EDIT --> Fotografia eventowa · Warszawa i okolice</div>
-    <h1><!-- EDIT: główny nagłówek -->Łapię moment,<br>nie <em>pozę</em>.</h1>
-    <p><!-- EDIT: opis pod nagłówkiem -->Wesela, koncerty, imprezy firmowe. Dokumentuję wydarzenia tak, jak się dzieją — bez ustawiania, bez sztywnych uśmiechów na zawołanie.</p>
+    <div class="hero-eyebrow"><span class="dot"></span> Fotografia eventowa · Warszawa i okolice</div>
+    <h1>Łapię moment,<br>nie <em>pozę</em>.</h1>
+    <p>Koncerty, festiwale, konferencje, imprezy firmowe. Dokumentuję wydarzenia tak, jak się dzieją — bez ustawiania, bez sztywnych ujęć na zawołanie.</p>
     <div class="hero-actions">
       <a href="#contact" class="btn btn-primary">Sprawdź dostępność terminu</a>
       <a href="#gallery" class="btn btn-ghost">Zobacz portfolio</a>
@@ -715,7 +706,6 @@
   </div>
 </section>
 
-<!-- ============ O MNIE ============ -->
 <section id="about">
   <div class="wrap about reveal">
     <div class="about-portrait">
@@ -723,9 +713,8 @@
     </div>
     <div class="about-text">
       <span class="eyebrow">O mnie</span>
-      <!-- EDIT: poniższe paragrafy zamień na własną historię -->
-      <p><strong>Nazywam się Marek</strong> i od ponad 8 lat fotografuję wydarzenia, które dzieją się raz. Ślub, pierwszy taniec, moment gdy wokalista zeskakuje ze sceny do tłumu — to się nie powtórzy, więc moja praca to być tam, gdzie trzeba, milisekundę wcześniej.</p>
-      <p>Pracuję dyskretnie. Nie ustawiam ludzi w rządki, nie krzyczę "uśmiech". Wolę poczekać na prawdziwy moment, niż go wyreżyserować — dlatego klienci często mówią, że zapominają, że tam jestem.</p>
+      <p><strong>Nazywam się Marek</strong> i od ponad 8 lat fotografuję wydarzenia, które dzieją się raz. Koncert, moment gdy wokalista zeskakuje ze sceny do tłumu, kluczowe wystąpienie na konferencji — to się nie powtórzy, więc moja praca to być tam, gdzie trzeba, milisekundę wcześniej.</p>
+      <p>Pracuję dyskretnie. Nie ustawiam ludzi w rządki, nie reżyseruję ujęć. Wolę poczekać na prawdziwy moment, niż go wymusić — dlatego klienci często mówią, że zapominają, że tam jestem.</p>
       <div class="stat-row">
         <div class="stat"><b>180+</b><span>Wydarzeń</span></div>
         <div class="stat"><b>8</b><span>Lat doświadczenia</span></div>
@@ -735,7 +724,6 @@
   </div>
 </section>
 
-<!-- ============ GALERIA ============ -->
 <section class="gallery" id="gallery">
   <div class="wrap">
     <div class="section-head reveal">
@@ -743,42 +731,41 @@
         <span class="eyebrow">Portfolio</span>
         <h2>Wybrane kadry z ostatnich realizacji</h2>
       </div>
-      <p class="section-note">Każde zdjęcie w galerii pochodzi z prawdziwego wydarzenia — żadnych sesji testowych, żadnych modeli. <!-- EDIT: zamień zdjęcia poniżej na swoje --></p>
+      <p class="section-note">Każde zdjęcie w galerii pochodzi z prawdziwego wydarzenia — żadnych sesji testowych, żadnych modeli.</p>
     </div>
     <div class="gallery-grid reveal">
-      <div class="gallery-item tall" data-full="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1600&auto=format&fit=crop">
-        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800&auto=format&fit=crop" alt="Pierwszy taniec na weselu" loading="lazy">
-        <span class="gallery-tag">Wesele · Pierwszy taniec</span>
-      </div>
-      <div class="gallery-item" data-full="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=1600&auto=format&fit=crop">
-        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=800&auto=format&fit=crop" alt="Para młoda" loading="lazy">
-        <span class="gallery-tag">Wesele · Plener</span>
-      </div>
-      <div class="gallery-item wide" data-full="https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?q=80&w=1600&auto=format&fit=crop">
-        <img src="https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?q=80&w=1200&auto=format&fit=crop" alt="Tłum na koncercie" loading="lazy">
+      <div class="gallery-item tall" data-full="https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?q=80&w=1600&auto=format&fit=crop">
+        <img src="https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?q=80&w=800&auto=format&fit=crop" alt="Tłum na koncercie" loading="lazy">
         <span class="gallery-tag">Koncert · Tłum</span>
       </div>
       <div class="gallery-item" data-full="https://images.unsplash.com/photo-1470229538611-16ba8c7ffbd7?q=80&w=1600&auto=format&fit=crop">
         <img src="https://images.unsplash.com/photo-1470229538611-16ba8c7ffbd7?q=80&w=800&auto=format&fit=crop" alt="Scena koncertowa" loading="lazy">
         <span class="gallery-tag">Koncert · Scena</span>
       </div>
-      <div class="gallery-item" data-full="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1600&auto=format&fit=crop">
-        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=800&auto=format&fit=crop" alt="Toast weselny" loading="lazy">
-        <span class="gallery-tag">Wesele · Przyjęcie</span>
+      <div class="gallery-item wide" data-full="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1600&auto=format&fit=crop">
+        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1200&auto=format&fit=crop" alt="Konferencja biznesowa" loading="lazy">
+        <span class="gallery-tag">Konferencja · Sala</span>
       </div>
-      <div class="gallery-item tall" data-full="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1600&auto=format&fit=crop">
-        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=800&auto=format&fit=crop" alt="Impreza firmowa" loading="lazy">
+      <div class="gallery-item" data-full="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=1600&auto=format&fit=crop">
+        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=800&auto=format&fit=crop" alt="Impreza firmowa" loading="lazy">
         <span class="gallery-tag">Event firmowy</span>
       </div>
-      <div class="gallery-item wide" data-full="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?q=80&w=1600&auto=format&fit=crop">
-        <img src="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?q=80&w=1200&auto=format&fit=crop" alt="Zabawa na parkiecie" loading="lazy">
-        <span class="gallery-tag">Wesele · Parkiet</span>
+      <div class="gallery-item" data-full="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1600&auto=format&fit=crop">
+        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=800&auto=format&fit=crop" alt="Networking na evencie firmowym" loading="lazy">
+        <span class="gallery-tag">Event firmowy · Networking</span>
+      </div>
+      <div class="gallery-item tall" data-full="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=1600&auto=format&fit=crop">
+        <img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=800&auto=format&fit=crop" alt="Festiwal muzyczny" loading="lazy">
+        <span class="gallery-tag">Festiwal</span>
+      </div>
+      <div class="gallery-item wide" data-full="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=1600&auto=format&fit=crop">
+        <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=1200&auto=format&fit=crop" alt="Prelegent na konferencji" loading="lazy">
+        <span class="gallery-tag">Konferencja · Prelegent</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ USŁUGI / CENNIK ============ -->
 <section id="pricing">
   <div class="wrap">
     <div class="section-head reveal">
@@ -786,13 +773,13 @@
         <span class="eyebrow">Usługi</span>
         <h2>Pakiety dopasowane do skali wydarzenia</h2>
       </div>
-      <p class="section-note">Każdy pakiet możemy dopasować — termin, liczba godzin i forma dostawy zdjęć są elastyczne. <!-- EDIT --></p>
+      <p class="section-note">Każdy pakiet możemy dopasować — termin, liczba godzin i forma dostawy zdjęć są elastyczne.</p>
     </div>
     <div class="pricing-grid reveal">
 
       <div class="price-card">
-        <div class="price-name"><!-- EDIT -->Klasyk</div>
-        <div class="price-desc">Mniejsze wydarzenia, kameralne uroczystości</div>
+        <div class="price-name">Konferencja</div>
+        <div class="price-desc">Wystąpienia, panele, networking</div>
         <div class="price-amount">1 800 <span>zł</span></div>
         <ul class="price-list">
           <li>Do 5 godzin fotografowania</li>
@@ -800,12 +787,12 @@
           <li>Galeria online do pobrania</li>
           <li>Podgląd w 48h</li>
         </ul>
-        <a href="#contact" class="btn btn-ghost">Zapytaj o termin</a>
+        <a href="#contact" class="btn btn-ghost-light">Zapytaj o termin</a>
       </div>
 
       <div class="price-card featured">
-        <div class="price-name"><!-- EDIT -->Pełny dzień</div>
-        <div class="price-desc">Wesela i większe imprezy firmowe</div>
+        <div class="price-name">Pełny event</div>
+        <div class="price-desc">Festiwale, gale, większe imprezy firmowe</div>
         <div class="price-amount">3 200 <span>zł</span></div>
         <ul class="price-list">
           <li>Do 10 godzin fotografowania</li>
@@ -818,8 +805,8 @@
       </div>
 
       <div class="price-card">
-        <div class="price-name"><!-- EDIT -->Koncert / Event</div>
-        <div class="price-desc">Relacja z koncertu, festiwalu, konferencji</div>
+        <div class="price-name">Koncert</div>
+        <div class="price-desc">Relacja z koncertu lub występu na żywo</div>
         <div class="price-amount">od 1 200 <span>zł</span></div>
         <ul class="price-list">
           <li>Stawka za godzinę lub ryczałt</li>
@@ -827,14 +814,13 @@
           <li>Pełna galeria w 72h</li>
           <li>Licencja do użytku komercyjnego</li>
         </ul>
-        <a href="#contact" class="btn btn-ghost">Zapytaj o termin</a>
+        <a href="#contact" class="btn btn-ghost-light">Zapytaj o termin</a>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- ============ OPINIE ============ -->
 <section class="testimonials" id="testimonials">
   <div class="wrap">
     <div class="section-head reveal">
@@ -844,48 +830,45 @@
       </div>
     </div>
     <div class="testi-track reveal">
-      <!-- EDIT: zamień opinie na prawdziwe -->
       <div class="testi-card">
-        <p class="testi-quote">"Zapomnieliśmy, że ktoś nas fotografuje — a potem dostaliśmy zdjęcia, na których widać emocje, których sami nie zauważyliśmy podczas wesela."</p>
-        <div class="testi-author">
-          <div class="testi-avatar">A</div>
-          <div><div class="testi-name">Ania i Tomek</div><div class="testi-role">Wesele, czerwiec 2025</div></div>
-        </div>
-      </div>
-      <div class="testi-card">
-        <p class="testi-quote">"Profesjonalizm i refleks — złapał ujęcia ze sceny, których nie mieliśmy nawet w materiałach od organizatora festiwalu."</p>
+        <p class="testi-quote">"Złapał ujęcia ze sceny, których nie mieliśmy nawet w materiałach od organizatora festiwalu. Profesjonalizm i refleks."</p>
         <div class="testi-author">
           <div class="testi-avatar">K</div>
           <div><div class="testi-name">Kuba Sienkiewicz</div><div class="testi-role">Festiwal muzyczny, 2025</div></div>
         </div>
       </div>
       <div class="testi-card">
-        <p class="testi-quote">"Galaria zdjęć z gali firmowej była gotowa następnego dnia rano. Dział marketingu mógł z niej korzystać od razu."</p>
+        <p class="testi-quote">"Galeria zdjęć z gali firmowej była gotowa następnego dnia rano. Dział marketingu mógł z niej korzystać od razu."</p>
         <div class="testi-author">
           <div class="testi-avatar">M</div>
           <div><div class="testi-name">Magda Kowalczyk</div><div class="testi-role">Event firmowy, Warszawa</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <p class="testi-quote">"Świetnie wyczuwał moment na scenie — zdjęcia z konferencji wyglądają jak relacja z dużego show, nie nudny fotoreportaż."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">P</div>
+          <div><div class="testi-name">Piotr Walczak</div><div class="testi-role">Konferencja branżowa, 2025</div></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ KONTAKT ============ -->
 <section id="contact">
   <div class="wrap contact-grid reveal">
     <div class="contact-info">
       <span class="eyebrow">Kontakt</span>
       <h2>Sprawdźmy, czy Twój termin jest wolny</h2>
-      <p><!-- EDIT -->Najlepiej odpowiadam w ciągu 24 godzin. Im wcześniej napiszesz przed weselem czy eventem, tym większa szansa, że zarezerwujemy termin.</p>
+      <p>Najlepiej odpowiadam w ciągu 24 godzin. Im wcześniej napiszesz przed eventem, tym większa szansa, że zarezerwujemy termin.</p>
 
       <div class="contact-detail">
-        <div><span class="label">E-mail</span><a href="mailto:kontakt@marek-foto.pl"><!-- EDIT -->kontakt@marek-foto.pl</a></div>
-        <div><span class="label">Telefon</span><a href="tel:+48600000000"><!-- EDIT -->+48 600 000 000</a></div>
-        <div><span class="label">Obszar działania</span><div><!-- EDIT -->Warszawa i cała Polska</div></div>
+        <div><span class="label">E-mail</span><a href="mailto:kontakt@marek-foto.pl">kontakt@marek-foto.pl</a></div>
+        <div><span class="label">Telefon</span><a href="tel:+48600000000">+48 600 000 000</a></div>
+        <div><span class="label">Obszar działania</span><div>Warszawa i cała Polska</div></div>
       </div>
 
       <div class="social-row">
-        <!-- EDIT: linki do social media -->
         <a href="#" target="_blank" rel="noopener">Instagram</a>
         <a href="#" target="_blank" rel="noopener">Facebook</a>
       </div>
@@ -903,8 +886,8 @@
       <div class="field">
         <label for="f-type">Typ wydarzenia</label>
         <select id="f-type" name="type">
-          <option>Wesele</option>
           <option>Koncert / festiwal</option>
+          <option>Konferencja</option>
           <option>Event firmowy</option>
           <option>Inne</option>
         </select>
@@ -923,28 +906,24 @@
   </div>
 </section>
 
-<!-- ============ FOOTER ============ -->
 <footer>
   <div class="wrap">
-    <p>© <span id="year"></span> <!-- EDIT -->Marek Nocny Fotografia. Wszystkie prawa zastrzeżone.</p>
+    <p>© <span id="year"></span> Marek Nocny Fotografia. Wszystkie prawa zastrzeżone.</p>
     <p>Zbudowano z troską o każdy kadr.</p>
   </div>
 </footer>
 
-<!-- ============ LIGHTBOX ============ -->
 <div class="lightbox" id="lightbox">
   <button class="lightbox-close" id="lightbox-close" aria-label="Zamknij">&times;</button>
   <img id="lightbox-img" src="" alt="Powiększone zdjęcie">
 </div>
 
 <script>
-// ---- Nagłówek: tło przy scrollu ----
 const header = document.getElementById('site-header');
 window.addEventListener('scroll', () => {
   header.classList.toggle('scrolled', window.scrollY > 40);
 });
 
-// ---- Menu mobilne ----
 const navToggle = document.getElementById('nav-toggle');
 const navMenu = document.getElementById('nav-menu');
 navToggle.addEventListener('click', () => {
@@ -958,7 +937,6 @@ navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
   navToggle.textContent = '☰';
 }));
 
-// ---- Scroll reveal ----
 const revealEls = document.querySelectorAll('.reveal');
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 if (prefersReducedMotion) {
@@ -975,12 +953,10 @@ if (prefersReducedMotion) {
   revealEls.forEach(el => observer.observe(el));
 }
 
-// ---- Efekt "flesza" przy kliknięciu w linki nawigacji i CTA ----
 const flashOverlay = document.getElementById('flash-overlay');
 function fireFlash(){
   if (prefersReducedMotion) return;
   flashOverlay.classList.remove('flash-fire');
-  // restart animacji
   void flashOverlay.offsetWidth;
   flashOverlay.classList.add('flash-fire');
 }
@@ -988,7 +964,6 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', fireFlash);
 });
 
-// ---- Lightbox galerii ----
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
 const lightboxClose = document.getElementById('lightbox-close');
@@ -1007,10 +982,6 @@ lightboxClose.addEventListener('click', () => lightbox.classList.remove('open'))
 lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.classList.remove('open'); });
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') lightbox.classList.remove('open'); });
 
-// ---- Formularz kontaktowy ----
-// UWAGA: to jest demo bez backendu. Żeby formularz faktycznie wysyłał
-// e-maile, podłącz darmową usługę typu Formspree / Web3Forms (patrz
-// instrukcja w README, którą dostaniesz razem ze stroną).
 const form = document.getElementById('contact-form');
 const status = document.getElementById('form-status');
 form.addEventListener('submit', (e) => {
@@ -1020,7 +991,6 @@ form.addEventListener('submit', (e) => {
   form.reset();
 });
 
-// ---- Rok w footerze ----
 document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 
