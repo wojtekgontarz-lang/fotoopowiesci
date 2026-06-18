@@ -2,6 +2,7 @@ backend:
   name: github
   repo: wojtekgontarz-lang/fotoopowiesci
   branch: main
+  base_url: https://decapcms.org
 
 media_folder: "assets/images"
 public_folder: "/assets/images"
